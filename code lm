@@ -1,0 +1,5 @@
+gsub("[^0-9]",'',rail$Total.Damage.Cost)
+as.numeric(rail$Total.Damage.Cost)
+selected_data <- rail[, c("Total.Damage.Cost", "Temperature", "Loaded.Freight.Cars", "Train.Speed", "Accident.Type")]
+cleaned_data <- na.omit(selected_data)
+linear_model = lm(Total.Damage.Cost ~ Temperature + Loaded.Freight.Cars + Train.Speed, data = cleaned_data, na.action = na.exclude)
